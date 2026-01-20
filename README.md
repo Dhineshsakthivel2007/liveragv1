@@ -1,27 +1,23 @@
-🧠 Live News RAG Application (RSS-Based)
+🧠 Live News RAG Application (API-Based)
 
-A Live Retrieval-Augmented Generation (RAG) application that fetches real-time news from RSS feeds, converts them into embeddings, stores them in a vector database, and generates grounded, source-aware answers using a Large Language Model (LLM).
+A Live Retrieval-Augmented Generation (RAG) application that fetches real-time news using APIs, converts articles into vector embeddings, stores them in a vector database, and generates grounded, source-aware answers using the Grok Large Language Model (LLM).
 
-This project demonstrates how modern AI systems like news assistants and search-based chatbots work internally.
+This project demonstrates how modern AI systems such as Perplexity-style news assistants and search-based chatbots operate internally.
 
 🚀 Features
 
-🔴 Live data ingestion using RSS feeds (no API keys required)
-
-📰 Real-time news updates
-
+🟢 Live news ingestion using News APIs
+📰 Real-time news updates (always fresh data)
 🧠 Semantic search using vector embeddings
-
-📦 Vector database for efficient retrieval
-
-🤖 LLM-powered answers with source references
-
-❌ No static dataset – always fresh data
+📦 Vector database for efficient similarity retrieval
+🤖 LLM-powered answers using Grok LLM
+🔗 Source-aware responses with article references
+❌ No static dataset
 
 🏗️ Architecture
-RSS Feeds
+News API
    ↓
-Feed Parser
+API Data Fetcher
    ↓
 Text Cleaning & Chunking
    ↓
@@ -31,69 +27,43 @@ Vector Database
    ↓
 Retriever
    ↓
-LLM Response (with sources)
+Grok LLM Response (with sources)
 
 🛠️ Tech Stack
 
 Programming Language: Python
 
-Data Source: RSS Feeds (BBC, Google News, etc.)
+Data Source: News APIs (configurable)
 
-Feed Parsing: feedparser
+Data Fetching: REST API requests
 
 Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
 
 Vector Database: ChromaDB
 
-LLM: OpenAI / local LLM (configurable)
+LLM: Grok LLM
 
 Framework (optional): Streamlit / FastAPI
 
-📦 Installation
-1️⃣ Clone the repository
-git clone https://github.com/your-username/live-rag-news.git
-cd live-rag-news
-
-2️⃣ Create virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate   # Windows: venv\Scripts\activate
-
-3️⃣ Install dependencies
-pip install -r requirements.txt
-
-🔗 RSS Feed Sources
-
-Example feeds used:
-
-BBC News
-
-https://feeds.bbci.co.uk/news/rss.xml
-
-
-Google News (India)
-
-https://news.google.com/rss?hl=en-IN&gl=IN&ceid=IN:en
-
-
-You can easily add more feeds in the configuration file.
-
 ▶️ How It Works
 
-Fetches latest articles from RSS feeds
+Fetches the latest news articles via APIs
 
-Cleans and combines title + summary
+Cleans and combines title + description + content
 
-Converts text into embeddings
+Splits text into chunks
 
-Stores embeddings in a vector database
+Converts chunks into vector embeddings
+
+Stores embeddings in ChromaDB
 
 On user query:
 
-Retrieves relevant news chunks
+Retrieves the most relevant news chunks
 
-Passes context to the LLM
+Sends context to Grok LLM
 
-Generates an answer with sources
+Generates a fact-grounded answer with sources
 
 🧪 Example Query
 
@@ -103,37 +73,35 @@ What are today’s top technology headlines?
 
 System:
 
-Retrieves latest tech news
+Retrieves latest technology news via API
 
-Generates summarized answer
+Performs semantic search
 
-Includes article links as references
+Generates a summarized response
 
-📌 Why RSS Instead of APIs?
+Includes article URLs as references
 
-✅ No rate limits
+📌 Why News APIs Instead of RSS?
 
-✅ No API keys
-
-✅ Free & reliable
-
-✅ Officially supported by news providers
-
-✅ Ideal for real-time AI systems
+✅ More structured data
+✅ Better filtering (category, language, country)
+✅ Reliable metadata (author, publish time, source)
+✅ Suitable for scalable production systems
+✅ Industry-standard for real-time applications
 
 📈 Future Improvements
 
-Voice command integration
+Voice-based news queries
 
-Full article extraction
+Full article scraping and summarization
 
-Scheduled embedding updates
+Scheduled background embedding updates
 
-Multi-language support
+Multi-language news support
 
-UI improvements
+Improved UI/UX
 
-Hybrid RSS + REST API ingestion
+Hybrid API + Web scraping pipeline
 
 🧑‍💻 Author
 

@@ -1,4 +1,4 @@
-const API_URL = "https://8r4fbm7t-8000.inc1.devtunnels.ms/ask";
+const API_URL = "http://127.0.0.1:8000/ask";
 
 export const sendQuery = async (question) => {
   const response = await fetch(API_URL, {

@@ -1,7 +1,7 @@
 import time
-from ingestion.news_fetcher import fetch_latest_news
-from rag.embeddings import embedding_manager
-from rag.vectorstore import vectorstore
+from backend.ingestion.news_fetcher import fetch_latest_news
+from backend.rag.embeddings import embedding_manager
+from backend.rag.vectorstore import vectorstore
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 seen_articles=set()
 text_splitter=RecursiveCharacterTextSplitter(
@@ -34,7 +34,7 @@ def ingest_latest_news():
 def auto_news_ingestion():
         while True:
             ingest_latest_news()
-            time.sleep(300)
+            time.sleep(500)
 if __name__ == "__main__":
     print("🚀 Running manual news ingestion...")
     ingest_latest_news()

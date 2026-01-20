@@ -1,5 +1,5 @@
-from rag.vectorstore import VectoreStore
-from rag.embeddings import EmbeddingManager
+from backend.rag.vectorstore import VectoreStore
+from backend.rag.embeddings import EmbeddingManager
 from typing import List, Dict, Any
 
 

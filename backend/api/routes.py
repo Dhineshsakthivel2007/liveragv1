@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from rag.qurey import RAGRetriever
-from rag.embeddings import embedding_manager
-from rag.llm import generate_answer
-from rag.vectorstore import vectorstore
+from backend.rag.qurey import RAGRetriever
+from backend.rag.embeddings import embedding_manager
+from backend.rag.llm import generate_answer
+from backend.rag.vectorstore import vectorstore
 
 router = APIRouter()
 
