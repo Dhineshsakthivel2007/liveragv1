@@ -4,7 +4,7 @@ import chromadb
 import numpy as np
 from typing import Any
 class VectoreStore:
-    def __init__(self,collection_name:str="rag_documents",persist_directory:str=r".\vectorStore"):
+    def __init__(self,collection_name:str="rag_documents",persist_directory:str=r"backend\vectorStore"):
         self.collection_name=collection_name
         self.persist_directory=persist_directory
         self.client=None
