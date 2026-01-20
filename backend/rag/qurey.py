@@ -4,9 +4,10 @@ from typing import List, Dict, Any
 
 
 class RAGRetriever:
-    def __init__(self, vector_store: VectoreStore, embedding_manager: EmbeddingManager):
+    def __init__(self, vector_store: VectoreStore, embedding_manager: EmbeddingManager,distance_threshold:float=1.5):
         self.vector_store = vector_store
         self.embedding_manager = embedding_manager
+        self.distance_threshold=distance_threshold
 
     def retrieve(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         print(f"retrieve documents for query: {query}")
@@ -31,6 +32,8 @@ class RAGRetriever:
                     results["distances"][0],
                 )
             ):
+                if distance>self.distance_threshold:
+                    continue
                 retrieved_docs.append({
                     "id": doc_id,
                     "content": document,

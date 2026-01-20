@@ -16,7 +16,7 @@ def articles_to_text(article):
     description:{article.get('description')}
     content:{article.get('content')}"""
 def ingest_latest_news():
-    articles=fetch_latest_news(country='us',category='technology')
+    articles=fetch_latest_news(country=None,category=None)
     new_texts=[]
     for article in articles:
         url=article.get("url")
@@ -25,6 +25,7 @@ def ingest_latest_news():
         seen_articles.add(url)
         new_texts.append(articles_to_text(article))
     if not new_texts:
+        print("no article to ingest")
         return
     chunks=text_splitter.split_text("\n".join(new_texts))
     embeddings=embedding_manager.generate_embeddings(chunks)
@@ -37,3 +38,4 @@ def auto_news_ingestion():
 if __name__ == "__main__":
     print("🚀 Running manual news ingestion...")
     ingest_latest_news()
+    auto_news_ingestion()

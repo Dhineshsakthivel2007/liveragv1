@@ -25,9 +25,9 @@ def fetch_latest_news(language="en",country=None,category=None,page_size=20):
     except Exception as e:
         print(f"error in fetching{e}")
         return []
-if __name__ == "__main__":
-    articles = fetch_latest_news(country="us")
+# if __name__ == "__main__":
+#     articles = fetch_latest_news(country="us")
 
-    print(f"Fetched {len(articles)} articles")
-    for a in articles[:3]:
-        print("-", a["title"])
+#     print(f"Fetched {len(articles)} articles")
+#     for a in articles[:3]:
+#         print("-", a["title"])
